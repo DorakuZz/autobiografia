@@ -20,3 +20,6 @@ Route::get('/', function () {
 Route::get('/information', function() {
     return view('layouts.information');
 });
+Route::get('/infancia',  function(){
+    return view('layouts.infancia');
+});
