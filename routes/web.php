@@ -2,33 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+// Redirige la raíz a /bio/information
+Route::redirect('/', '/bio/information');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Opcional: que /information funcione también
+Route::view('/information', 'bio.information')->name('information');
 
-Route::get('/information', function() {
-    return view('layouts.information');
-});
-Route::get('/infancia',  function(){
-    return view('layouts.infancia');
-});
-Route::get('/adolescencia', function() {
-    return view('layouts.adolescencia');
-});
-Route::get('/actualidad', function() {
-    return view('layouts.actualidad');
-});
-Route::get('/aspiraciones', function() {
-    return view('layouts.aspiraciones');
+// Grupo /bio
+Route::prefix('bio')->group(function () {
+    Route::view('information',   'bio.information')->name('bio.information');
+    Route::view('infancia',      'bio.infancia')->name('bio.infancia');
+    Route::view('adolescencia',  'bio.adolescencia')->name('bio.adolescencia');
+    Route::view('actualidad',    'bio.actualidad')->name('bio.actualidad');
+    Route::view('aspiraciones',  'bio.aspiraciones')->name('bio.aspiraciones');
 });
