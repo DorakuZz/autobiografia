@@ -26,3 +26,6 @@ Route::get('/infancia',  function(){
 Route::get('/adolescencia', function() {
     return view('layouts.adolescencia');
 });
+Route::get('/actualidad', function() {
+    return view('layouts.actualidad');
+});
