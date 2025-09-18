@@ -23,3 +23,6 @@ Route::get('/information', function() {
 Route::get('/infancia',  function(){
     return view('layouts.infancia');
 });
+Route::get('/adolescencia', function() {
+    return view('layouts.adolescencia');
+});
